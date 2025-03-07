@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net gridActive="true" id="0" netclass="eDSPN" sharpEdges="false"
+  xmlns="http://timenet.tu-ilmenau.de/schema/eDSPN"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://timenet.tu-ilmenau.de/schema/eDSPN etc/schemas/eDSPN.xsd">
+  <place id="0.0" initialMarking="QS" type="node">
+    <graphics orientation="0" x="140" y="450"/>
+    <label id="0.0.0" text="pQueue" type="text">
+      <graphics x="-70" y="-10"/>
+    </label>
+  </place>
+  <place id="0.1" initialMarking="1" type="node">
+    <graphics orientation="0" x="190" y="550"/>
+    <label id="0.1.0" text="pClient" type="text">
+      <graphics x="-20" y="30"/>
+    </label>
+  </place>
+  <place id="0.2" initialMarking="0" type="node">
+    <graphics orientation="0" x="300" y="550"/>
+    <label id="0.2.0" text="pClClient" type="text">
+      <graphics x="20" y="20"/>
+    </label>
+  </place>
+  <place id="0.3" initialMarking="0" type="node">
+    <graphics orientation="0" x="600" y="300"/>
+    <label id="0.3.0" text="pCoordRead" type="text">
+      <graphics x="-10" y="30"/>
+    </label>
+  </place>
+  <place id="0.4" initialMarking="0" type="node">
+    <graphics orientation="0" x="510" y="60"/>
+    <label id="0.4.0" text="pRespSucRead" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place id="0.5" initialMarking="0" type="node">
+    <graphics orientation="0" x="1220" y="300"/>
+    <label id="0.5.0" text="pSrvQueryRead" type="text">
+      <graphics x="50" y="20"/>
+    </label>
+  </place>
+  <place id="0.6" initialMarking="0" type="node">
+    <graphics orientation="0" x="1110" y="440"/>
+    <label id="0.6.0" text="pSrDw" type="text">
+      <graphics x="40" y="-10"/>
+    </label>
+  </place>
+  <place id="0.7" initialMarking="RF" type="node">
+    <graphics orientation="0" x="790" y="450"/>
+    <label id="0.7.0" text="pSrUp" type="text">
+      <graphics x="10" y="-50"/>
+    </label>
+  </place>
+  <place id="0.9" initialMarking="0" type="node">
+    <graphics orientation="0" x="870" y="130"/>
+    <label id="0.9.0" text="pRespFailRead" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </place>
+  <place id="0.57" initialMarking="N" type="node">
+    <graphics orientation="0" x="1380" y="420"/>
+    <label id="0.57.0" text="pInfUp" type="text">
+      <graphics x="-20" y="-40"/>
+    </label>
+  </place>
+  <place id="0.58" initialMarking="0" type="node">
+    <graphics orientation="0" x="1380" y="520"/>
+    <label id="0.58.0" text="pInfDown" type="text">
+      <graphics x="-40" y="20"/>
+    </label>
+  </place>
+  <place id="0.69" initialMarking="0" type="node">
+    <graphics orientation="0" x="310" y="450"/>
+    <label id="0.69.0" text="pSrv" type="text">
+      <graphics x="-30" y="-40"/>
+    </label>
+  </place>
+  <place id="0.79" initialMarking="0" type="node">
+    <graphics orientation="0" x="870" y="810"/>
+    <label id="0.79.0" text="pRespFailWrite" type="text">
+      <graphics x="-10" y="30"/>
+    </label>
+  </place>
+  <place id="0.82" initialMarking="0" type="node">
+    <graphics orientation="0" x="590" y="620"/>
+    <label id="0.82.0" text="pCoordWrite" type="text">
+      <graphics x="0" y="-40"/>
+    </label>
+  </place>
+  <place id="0.87" initialMarking="0" type="node">
+    <graphics orientation="0" x="1220" y="620"/>
+    <label id="0.87.0" text="pSrvQueryWrite" type="text">
+      <graphics x="40" y="20"/>
+    </label>
+  </place>
+  <place id="0.94" initialMarking="0" type="node">
+    <graphics orientation="0" x="630" y="920"/>
+    <label id="0.94.0" text="pRespSucWrite" type="text">
+      <graphics x="-90" y="10"/>
+    </label>
+  </place>
+  <exponentialTransition delay="cl" id="0.10" preemptionPolicy="PRD"
+    serverType="ExclusiveServer" type="node">
+    <graphics orientation="-90" x="240" y="620"/>
+    <label id="0.10.0" text="tClient" type="text">
+      <graphics x="50" y="0"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="cc_r" id="0.18" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="1110" y="300"/>
+    <label id="0.18.0" text="tCoordRead" type="text">
+      <graphics x="40" y="20"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="resp" id="0.24" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="80" y="60"/>
+    <label id="0.24.0" text="tRespSucRead" type="text">
+      <graphics x="10" y="-40"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="restore_SW" id="0.27"
+    preemptionPolicy="PRD" serverType="InfiniteServer" type="node">
+    <graphics orientation="-90" x="1020" y="520"/>
+    <label id="0.27.0" text="tRestore" type="text">
+      <graphics x="10" y="20"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="failure_SW" id="0.28"
+    preemptionPolicy="PRD" serverType="InfiniteServer" type="node">
+    <graphics orientation="-90" x="1020" y="380"/>
+    <label id="0.28.0" text="tFailure" type="text">
+      <graphics x="0" y="-30"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="resp" id="0.8" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="140" y="130"/>
+    <label id="0.8.0" text="tResFaiRead" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="481.46" id="0.59" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="1430" y="470"/>
+    <label id="0.59.0" text="tInfFail" type="text">
+      <graphics x="30" y="-20"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="1.03" id="0.60" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="1330" y="470"/>
+    <label id="0.60.0" text="tInfRes" type="text">
+      <graphics x="-40" y="-40"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="cc_w" id="0.84" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="1110" y="620"/>
+    <label id="0.84.0" text="tCoordWrite" type="text">
+      <graphics x="40" y="10"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="resp" id="0.96" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="80" y="920"/>
+    <label id="0.96.0" text="tRespSucWrite" type="text">
+      <graphics x="40" y="20"/>
+    </label>
+  </exponentialTransition>
+  <exponentialTransition delay="resp" id="0.99" preemptionPolicy="PRD"
+    serverType="InfiniteServer" type="node">
+    <graphics orientation="0" x="150" y="800"/>
+    <label id="0.99.0" text="tResFaiWrite" type="text">
+      <graphics x="0" y="30"/>
+    </label>
+  </exponentialTransition>
+  <immediateTransition enablingFunction="(#pCoordRead > 0)" id="0.33"
+    priority="1" type="node" weight="1">
+    <graphics orientation="0" x="600" y="200"/>
+    <label id="0.33.0" text="tInCooRead" type="text">
+      <graphics x="-30" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="(#pSrvQueryRead > 0)" id="0.34"
+    priority="1" type="node" weight="1">
+    <graphics orientation="0" x="1220" y="200"/>
+    <label id="0.34.0" text="tInQueRead" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="(#pInfUp &lt; K)" id="0.54"
+    priority="1" type="node" weight="1">
+    <graphics orientation="0" x="960" y="440"/>
+    <label id="0.54.0" text="tInFail" type="text">
+      <graphics x="-10" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="" id="0.13" priority="1"
+    type="node" weight="1">
+    <graphics orientation="0" x="240" y="450"/>
+    <label id="0.13.0" text="tQueue" type="text">
+      <graphics x="-40" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="" id="0.70" priority="1"
+    type="node" weight="cl_r">
+    <graphics orientation="0" x="410" y="300"/>
+    <label id="0.70.0" text="tSrvRead" type="text">
+      <graphics x="-10" y="-40"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="" id="0.71" priority="1"
+    type="node" weight="cl_w">
+    <graphics orientation="0" x="410" y="620"/>
+    <label id="0.71.0" text="tSrvWrite" type="text">
+      <graphics x="-10" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="(#pSrvQueryWrite > 0)"
+    id="0.75" priority="1" type="node" weight="1">
+    <graphics orientation="0" x="1220" y="760"/>
+    <label id="0.75.0" text="tInQueWrite" type="text">
+      <graphics x="0" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="(#pCoordWrite > 0)" id="0.78"
+    priority="1" type="node" weight="1">
+    <graphics orientation="0" x="590" y="740"/>
+    <label id="0.78.0" text="tInCooWrite" type="text">
+      <graphics x="-20" y="30"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="" id="0.91" priority="1"
+    type="node" weight="1">
+    <graphics orientation="0" x="1330" y="920"/>
+    <label id="0.91.0" text="tConsWrite" type="text">
+      <graphics x="30" y="0"/>
+    </label>
+  </immediateTransition>
+  <immediateTransition enablingFunction="" id="0.23" priority="1"
+    type="node" weight="1">
+    <graphics orientation="0" x="1330" y="60"/>
+    <label id="0.23.0" text="tConsRead" type="text">
+      <graphics x="40" y="-30"/>
+    </label>
+  </immediateTransition>
+  <arc fromNode="0.1" id="0.11" toNode="0.10" type="connector">
+    <inscription id="0.11.0" text="1" type="inscriptionText">
+      <graphics x="-15" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.10" id="0.12" toNode="0.2" type="connector">
+    <inscription id="0.12.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.24" id="0.25" toNode="0.0" type="connector">
+    <inscription id="0.25.0" text="1" type="inscriptionText">
+      <graphics x="0" y="0"/>
+    </inscription>
+    <handle id="0.25.1">
+      <graphics orientation="0" x="80" y="420"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.4" id="0.26" toNode="0.24" type="connector">
+    <inscription id="0.26.0" text="1" type="inscriptionText">
+      <graphics x="-15" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.28" id="0.29" toNode="0.6" type="connector">
+    <inscription id="0.29.0" text="1" type="inscriptionText">
+      <graphics x="-20" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.6" id="0.30" toNode="0.27" type="connector">
+    <inscription id="0.30.0" text="1" type="inscriptionText">
+      <graphics x="-35" y="-25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.27" id="0.31" toNode="0.7" type="connector">
+    <inscription id="0.31.0" text="1" type="inscriptionText">
+      <graphics x="-35" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.7" id="0.32" toNode="0.28" type="connector">
+    <inscription id="0.32.0" text="RF+1" type="inscriptionText">
+      <graphics x="10" y="-30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.3" id="0.36" toNode="0.33" type="connector">
+    <inscription id="0.36.0" text="#pCoordRead" type="inscriptionText">
+      <graphics x="-100" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.5" id="0.37" toNode="0.34" type="connector">
+    <inscription id="0.37.0" text="#pSrvQueryRead" type="inscriptionText">
+      <graphics x="0" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.33" id="0.38" toNode="0.9" type="connector">
+    <inscription id="0.38.0" text="#pCoordRead" type="inscriptionText">
+      <graphics x="-95" y="-25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.9" id="0.40" toNode="0.8" type="connector">
+    <inscription id="0.40.0" text="cons" type="inscriptionText">
+      <graphics x="-125" y="-30"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.8" id="0.41" toNode="0.0" type="connector">
+    <inscription id="0.41.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.57" id="0.61" toNode="0.59" type="connector">
+    <inscription id="0.61.0" text="N+1" type="inscriptionText">
+      <graphics x="-5" y="-15"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.59" id="0.62" toNode="0.58" type="connector">
+    <inscription id="0.62.0" text="1" type="inscriptionText">
+      <graphics x="-5" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.58" id="0.63" toNode="0.60" type="connector">
+    <inscription id="0.63.0" text="1" type="inscriptionText">
+      <graphics x="-5" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.60" id="0.64" toNode="0.57" type="connector">
+    <inscription id="0.64.0" text="1" type="inscriptionText">
+      <graphics x="-5" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.7" id="0.55" toNode="0.54" type="connector">
+    <inscription id="0.55.0" text="#pSrUp" type="inscriptionText">
+      <graphics x="-5" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.54" id="0.56" toNode="0.6" type="connector">
+    <inscription id="0.56.0" text="#pSrUp" type="inscriptionText">
+      <graphics x="-20" y="0"/>
+    </inscription>
+    <handle id="0.56.1">
+      <graphics orientation="0" x="1000" y="470"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.2" id="0.14" toNode="0.13" type="connector">
+    <inscription id="0.14.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.0" id="0.15" toNode="0.13" type="connector">
+    <inscription id="0.15.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.13" id="0.16" toNode="0.1" type="connector">
+    <inscription id="0.16.0" text="1" type="inscriptionText">
+      <graphics x="-15" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.70" id="0.17" toNode="0.3" type="connector">
+    <inscription id="0.17.0" text="cons" type="inscriptionText">
+      <graphics x="-25" y="10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.13" id="0.72" toNode="0.69" type="connector">
+    <inscription id="0.72.0" text="1" type="inscriptionText">
+      <graphics x="15" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.69" id="0.73" toNode="0.70" type="connector">
+    <inscription id="0.73.0" text="1" type="inscriptionText">
+      <graphics x="0" y="5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.69" id="0.74" toNode="0.71" type="connector">
+    <inscription id="0.74.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="-55"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.78" id="0.80" toNode="0.79" type="connector">
+    <inscription id="0.80.0" text="#pCoordWrite" type="inscriptionText">
+      <graphics x="-100" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.75" id="0.81" toNode="0.79" type="connector">
+    <inscription id="0.81.0" text="#pSrvQueryWrite" type="inscriptionText">
+      <graphics x="-45" y="10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.87" id="0.88" toNode="0.75" type="connector">
+    <inscription id="0.88.0" text="#pSrvQueryWrite" type="inscriptionText">
+      <graphics x="0" y="5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.82" id="0.83" toNode="0.78" type="connector">
+    <inscription id="0.83.0" text="#pCoordWrite" type="inscriptionText">
+      <graphics x="-100" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.82" id="0.86" toNode="0.84" type="connector">
+    <inscription id="0.86.0" text="1" type="inscriptionText">
+      <graphics x="-10" y="-5"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.84" id="0.89" toNode="0.87" type="connector">
+    <inscription id="0.89.0" text="1" type="inscriptionText">
+      <graphics x="-5" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.71" id="0.90" toNode="0.82" type="connector">
+    <inscription id="0.90.0" text="cons" type="inscriptionText">
+      <graphics x="-30" y="10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.91" id="0.93" toNode="0.94" type="connector">
+    <inscription id="0.93.0" text="1" type="inscriptionText">
+      <graphics x="-20" y="-10"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.94" id="0.95" toNode="0.96" type="connector">
+    <inscription id="0.95.0" text="1" type="inscriptionText">
+      <graphics x="-15" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.96" id="0.97" toNode="0.0" type="connector">
+    <inscription id="0.97.0" text="1" type="inscriptionText">
+      <graphics x="0" y="-10"/>
+    </inscription>
+    <handle id="0.97.1">
+      <graphics orientation="0" x="80" y="480"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.87" id="0.92" toNode="0.91" type="connector">
+    <inscription id="0.92.0" text="cons" type="inscriptionText">
+      <graphics x="10" y="30"/>
+    </inscription>
+    <handle id="0.92.1">
+      <graphics orientation="0" x="1330" y="620"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.99" id="0.98" toNode="0.0" type="connector">
+    <inscription id="0.98.0" text="1" type="inscriptionText">
+      <graphics x="-105" y="-225"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.79" id="0.100" toNode="0.99" type="connector">
+    <inscription id="0.100.0" text="cons" type="inscriptionText">
+      <graphics x="-110" y="-25"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.18" id="0.20" toNode="0.5" type="connector">
+    <inscription id="0.20.0" text="1" type="inscriptionText">
+      <graphics x="-55" y="-20"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.3" id="0.19" toNode="0.18" type="connector">
+    <inscription id="0.19.0" text="1" type="inscriptionText">
+      <graphics x="-5" y="0"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.5" id="0.21" toNode="0.23" type="connector">
+    <inscription id="0.21.0" text="cons" type="inscriptionText">
+      <graphics x="10" y="-80"/>
+    </inscription>
+    <handle id="0.21.1">
+      <graphics orientation="0" x="1330" y="300"/>
+    </handle>
+  </arc>
+  <arc fromNode="0.23" id="0.22" toNode="0.4" type="connector">
+    <inscription id="0.22.0" text="1" type="inscriptionText">
+      <graphics x="-30" y="-40"/>
+    </inscription>
+  </arc>
+  <arc fromNode="0.34" id="0.39" toNode="0.9" type="connector">
+    <inscription id="0.39.0" text="#pSrvQueryRead" type="inscriptionText">
+      <graphics x="-25" y="-35"/>
+    </inscription>
+  </arc>
+  <inhibit fromNode="0.6" id="0.35" toNode="0.18" type="connector">
+    <inscription id="0.35.0" text="(RF-cons)+1" type="inscriptionText">
+      <graphics x="0" y="-10"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.7" id="0.42" toNode="0.33" type="connector">
+    <inscription id="0.42.0" text="cons" type="inscriptionText">
+      <graphics x="-55" y="-110"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.7" id="0.43" toNode="0.34" type="connector">
+    <inscription id="0.43.0" text="cons" type="inscriptionText">
+      <graphics x="45" y="-100"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.6" id="0.68" toNode="0.54" type="connector">
+    <inscription id="0.68.0" text="RF" type="inscriptionText">
+      <graphics x="0" y="-10"/>
+    </inscription>
+    <handle id="0.68.1">
+      <graphics orientation="0" x="1000" y="420"/>
+    </handle>
+  </inhibit>
+  <inhibit fromNode="0.58" id="0.65" toNode="0.27" type="connector">
+    <inscription id="0.65.0" text="(N-K)+1" type="inscriptionText">
+      <graphics x="10" y="-25"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.7" id="0.76" toNode="0.75" type="connector">
+    <inscription id="0.76.0" text="cons" type="inscriptionText">
+      <graphics x="75" y="105"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.7" id="0.77" toNode="0.78" type="connector">
+    <inscription id="0.77.0" text="cons" type="inscriptionText">
+      <graphics x="-40" y="70"/>
+    </inscription>
+  </inhibit>
+  <inhibit fromNode="0.6" id="0.85" toNode="0.84" type="connector">
+    <inscription id="0.85.0" text="(RF-cons)+1" type="inscriptionText">
+      <graphics x="0" y="25"/>
+    </inscription>
+  </inhibit>
+  <measure
+    expression="((#pCoordWrite)+(#pRespSucWrite)+((#pRespSucWrite>0)*(RF-cons)*((#pCoordWrite)/(cons*(QS-(#pQueue))))))*Pwrite*T"
+    id="0.52" name="Ewrite_old" result="" type="text">
+    <graphics x="1410" y="720"/>
+  </measure>
+  <measure expression="((#pCoordRead)+(#pRespSucRead))*Pread*T"
+    id="0.102" name="Eread" result="" type="text">
+    <graphics x="1410" y="650"/>
+  </measure>
+  <measure
+    expression="((#pCoordWrite)+(#pRespSucWrite)+((#pRespSucWrite)*((RF-cons)/ RF)))*Pwrite*T"
+    id="0.107" name="Ewrite_T" result="" type="text">
+    <graphics x="1410" y="760"/>
+  </measure>
+  <measure
+    expression="((#pCoordWrite)+(#pRespSucWrite)+((#pCoordWrite)*(RF-cons)))*Pwrite*T"
+    id="0.113" name="Ewrite" result="" type="text">
+    <graphics x="1410" y="680"/>
+  </measure>
+  <measure expression="(#pSrUp >= cons)" id="0.110" name="A" result="" type="text">
+    <graphics x="1410" y="620"/>
+  </measure>
+  <definition expression="3" id="0.45" name="RF" type="text">
+    <graphics x="1620" y="270"/>
+  </definition>
+  <definition expression="2" id="0.47" name="QS" type="text">
+    <graphics x="1420" y="100"/>
+  </definition>
+  <definition expression="0.49981" id="0.46" name="resp" type="text">
+    <graphics x="1520" y="170"/>
+  </definition>
+  <definition expression="3006" id="0.49" name="restore_SW" type="text">
+    <graphics x="1510" y="40"/>
+  </definition>
+  <definition expression="31536000" id="0.50" name="failure_SW" type="text">
+    <graphics x="1510" y="60"/>
+  </definition>
+  <definition expression="0.01296" id="0.51" name="cl" type="text">
+    <graphics x="1520" y="150"/>
+  </definition>
+  <definition expression="1" id="0.66" name="K" type="text">
+    <graphics x="1420" y="60"/>
+  </definition>
+  <definition expression="1" id="0.67" name="N" type="text">
+    <graphics x="1420" y="80"/>
+  </definition>
+  <definition expression="13.593" id="0.104" name="T" type="text">
+    <graphics x="1620" y="230"/>
+  </definition>
+  <definition expression="0.5" id="0.44" name="cl_w" type="text">
+    <graphics x="1620" y="500"/>
+  </definition>
+  <definition expression="41.62782481" id="0.48" name="Pread" type="text">
+    <graphics x="1620" y="360"/>
+  </definition>
+  <definition expression="0.5" id="0.53" name="cl_r" type="text">
+    <graphics x="1620" y="380"/>
+  </definition>
+  <definition expression="0.015505" id="0.101" name="cc_w" type="text">
+    <graphics x="1620" y="520"/>
+  </definition>
+  <definition expression="40" id="0.103" name="Pwrite" type="text">
+    <graphics x="1620" y="480"/>
+  </definition>
+  <definition expression="2" id="0.105" name="cons" type="text">
+    <graphics x="1620" y="290"/>
+  </definition>
+  <definition expression="0.014327" id="0.108" name="cc_r" type="text">
+    <graphics x="1620" y="400"/>
+  </definition>
+  <definition expression="3006" id="0.106" name="restore_HW" type="text">
+    <graphics x="1510" y="90"/>
+  </definition>
+  <definition expression="31536000" id="0.109" name="failure_HW" type="text">
+    <graphics x="1510" y="110"/>
+  </definition>
+</net>
