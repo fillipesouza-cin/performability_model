@@ -45,7 +45,12 @@ This repository contains data tables related to energy consumption and availabil
 
 ---
 
+## **filename:** `transactions_dataset.xlsx`
 
+This Excel file contains the dataset with the values adopted for the experiments.
+It includes transaction records and relevant variables used to configure and validate the stochastic Petri nets model developed in Timenet. 
+
+---
 ## **filename:** `performability_model.xml`
 
 This file contains the performability model created using TimeNet 4.5.
